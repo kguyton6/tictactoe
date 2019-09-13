@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Controlled as CodeMirror } from 'react-codemirror2';
+import ContextWrapper from './containers/ContextWrapper';
+import Layout from './styles/Layout';
+import ThemeSwitch from './components/ThemeSwitch';
+import Header from './components/Header';
+import { Main } from './styles/styles';
+import Board from './containers/Board';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+export default () => (
+    <ContextWrapper>
+      <Layout>
+        <Header>
+          <h1>Tic Tac Toe</h1>
+          <ThemeSwitch />
+        </Header>
+        <Main>
+         <Board />
+       </Main>
+      </Layout>
+    </ContextWrapper>
   );
-}
-
-export default App;
